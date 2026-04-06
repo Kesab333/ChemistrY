@@ -1,17 +1,17 @@
-/**
- * contact.js — PhysicX Contact Page Logic
+﻿/**
+ * contact.js â€” ChemistrY Contact Page Logic
  * Handles form validation, submission simulation, and reveal animations.
  */
 
 (() => {
   'use strict';
 
-  /* ── Helpers ──────────────────────────────────────────── */
+  /* â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const isValidEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
-  /* ── DOM refs ─────────────────────────────────────────── */
+  /* â”€â”€ DOM refs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   const form        = $('#contact-form');
   const btnSubmit   = $('#btn-submit');
@@ -25,7 +25,7 @@
     message: { el: $('#inp-message'), group: $('#fg-message'), validate: v => v.trim().length >= 10 },
   };
 
-  /* ── Field-level validation ───────────────────────────── */
+  /* â”€â”€ Field-level validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function validateField(key) {
     const { el, group, validate } = fields[key];
@@ -51,7 +51,7 @@
     });
   });
 
-  /* ── Status message helpers ───────────────────────────── */
+  /* â”€â”€ Status message helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function hideStatus() {
     msgSuccess.classList.remove('visible');
@@ -69,7 +69,7 @@
     msgError.classList.add('visible');
   }
 
-  /* ── Loading state ────────────────────────────────────── */
+  /* â”€â”€ Loading state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function setLoading(loading) {
     btnSubmit.classList.toggle('loading', loading);
@@ -77,7 +77,7 @@
     btnSubmit.setAttribute('aria-busy', String(loading));
   }
 
-  /* ── Form reset ───────────────────────────────────────── */
+  /* â”€â”€ Form reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function resetForm() {
     form.reset();
@@ -88,7 +88,7 @@
     });
   }
 
-  /* ── Simulated submit (replace with real endpoint) ──────
+  /* â”€â”€ Simulated submit (replace with real endpoint) â”€â”€â”€â”€â”€â”€
    *
    *  To wire a real backend, replace simulateSubmit() with:
    *
@@ -99,11 +99,11 @@
    *  });
    *  if (!resp.ok) throw new Error('Server error');
    *
-   * ─────────────────────────────────────────────────────── */
+   * â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function simulateSubmit(payload) {
     return new Promise((resolve, reject) => {
-      console.info('[PhysicX Contact] Payload:', payload);
+      console.info('[ChemistrY Contact] Payload:', payload);
       /* Simulate ~1.4 s network latency */
       setTimeout(() => {
         /* Always resolves in demo mode. Set to reject() to test error path. */
@@ -112,7 +112,7 @@
     });
   }
 
-  /* ── Submit handler ───────────────────────────────────── */
+  /* â”€â”€ Submit handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -147,12 +147,12 @@
     });
   }
 
-  /* ── Scroll-reveal (if shared.css uses IntersectionObserver) ──
+  /* â”€â”€ Scroll-reveal (if shared.css uses IntersectionObserver) â”€â”€
    *
-   *  PhysicX shared.css handles .reveal/.reveal-delay-* via its own
+   *  ChemistrY shared.css handles .reveal/.reveal-delay-* via its own
    *  observer in nav.js or a global initializer. This block is a
    *  safe fallback in case contact.html loads before that runs.
-   * ─────────────────────────────────────────────────────────── */
+   * â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
   function initReveal() {
     if (!('IntersectionObserver' in window)) {
@@ -181,3 +181,4 @@
   }
 
 })();
+

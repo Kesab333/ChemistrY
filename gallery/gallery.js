@@ -1,16 +1,16 @@
-/**
- * gallery.js — PhysicX Simulation Gallery
+﻿/**
+ * gallery.js â€” ChemistrY Simulation Gallery
  * Handles: simulation data, category filtering, search, card rendering, modal
  *
  * Dependencies: shared.css, nav.js (loaded in gallery.html)
  * No external libraries required.
  */
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    SIMULATION DATA
    Each entry maps to one preview-card.
    `screenshot` paths are relative to assets/screenshots/
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 const SIMULATIONS = [
    {
      id: "login-window",
@@ -42,7 +42,7 @@ const SIMULATIONS = [
    {
     id: "main-dashboard",
     title: "Simulation Dashboard",
-    desc: "The central workspace providing access to physics domains, simulation statistics, navigation tools, and categorized modules for interactive exploration.",
+    desc: "The central workspace providing access to chemistry domains, simulation statistics, navigation tools, and categorized modules for interactive exploration.",
     category: "general",
     badge: { text: "Core UI", cls: "badge-primary" },
     screenshot: "../assets/screenshots/main dashboard.png",
@@ -52,8 +52,8 @@ const SIMULATIONS = [
     id: "build-an-atom",
     title: "Build an Atom",
     desc: "An interactive simulation that allows users to construct atoms by adding protons, neutrons, and electrons, helping visualize atomic structure, isotopes, and charge balance in real time.",
-    category: "nuclear-physics",
-    badge: { text: "Nuclear Physics", cls: "badge-red" },
+    category: "nuclear-chemistry",
+    badge: { text: "Nuclear Chemistry", cls: "badge-red" },
     screenshot: "../assets/screenshots/Build an Atom.png",
     
   },
@@ -87,7 +87,7 @@ const SIMULATIONS = [
   {
     id: "simple-harmonic-motion",
     title: "Simple Harmonic Motion",
-    desc: "Explore oscillatory systems — spring-mass and pendulum. Plot displacement, velocity, and acceleration in real time.",
+    desc: "Explore oscillatory systems â€” spring-mass and pendulum. Plot displacement, velocity, and acceleration in real time.",
     category: "mechanics",
     badge: { text: "Mechanics", cls: "badge-blue" },
     screenshot: "assets/screenshots/shm.png",
@@ -133,8 +133,8 @@ const SIMULATIONS = [
     id: "radioactive-decay",
     title: "Radioactive Decay",
     desc: "An interactive simulation that demonstrates the process of radioactive decay, allowing users to explore half-life, decay rates, and the transformation of unstable nuclei over time.",
-    category: "nuclear-physics",
-    badge: { text: "Nuclear Physics", cls: "badge-red" },
+    category: "nuclear-chemistry",
+    badge: { text: "Nuclear Chemistry", cls: "badge-red" },
     screenshot: "../assets/screenshots/Radioactive decay.png",
    
   },
@@ -186,7 +186,7 @@ const SIMULATIONS = [
   {
     id: "scientific-calculator",
     title: "Scientific Calculator",
-    desc: "A full-featured scientific calculator with history, unit conversion, and support for physics constants built right in.",
+    desc: "A full-featured scientific calculator with history, unit conversion, and support for chemistry constants built right in.",
     category: "mathematics",
     badge: { text: "Mathematics", cls: "badge-slate" },
     screenshot: "assets/screenshots/calculator.png",
@@ -194,15 +194,15 @@ const SIMULATIONS = [
   },
 ];
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    STATE
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 let activeCategory = "all";
 let searchQuery    = "";
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    HELPERS
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /**
  * Returns the filtered simulation list based on
@@ -251,7 +251,7 @@ function placeholderSVG() {
 
 /**
  * Renders a single preview-card DOM element.
- * @param {Object} sim — simulation data object
+ * @param {Object} sim â€” simulation data object
  * @returns {HTMLElement}
  */
 function buildCard(sim) {
@@ -295,7 +295,7 @@ function buildCard(sim) {
       </div>`;
   }
 
-  // Click thumbnail → open modal
+  // Click thumbnail â†’ open modal
   thumb.addEventListener("click", () => openModal(sim));
   thumb.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -340,9 +340,9 @@ function buildCard(sim) {
   return card;
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    RENDER
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 /**
  * Renders filtered cards into the grid, or shows empty state.
@@ -396,9 +396,9 @@ function renderGallery() {
   requestAnimationFrame(() => observeReveal());
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    REVEAL ANIMATION OBSERVER
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 let _revealObserver = null;
 
@@ -429,9 +429,9 @@ function observeReveal() {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    MODAL
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 let _lastFocused = null;
 
@@ -473,9 +473,9 @@ function closeModal() {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    EVENT BINDING
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 function bindEvents() {
   // Filter buttons
@@ -494,7 +494,7 @@ function bindEvents() {
     });
   }
 
-  // Search input — debounced
+  // Search input â€” debounced
   const searchEl = document.getElementById("gallery-search");
   if (searchEl) {
     let _debounce = null;
@@ -527,9 +527,9 @@ function bindEvents() {
   });
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    INIT
-═══════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 function init() {
   bindEvents();
@@ -545,3 +545,4 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+

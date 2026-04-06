@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — PhysicX</title>
+  <title>Contact - ChemistrY</title>
   <link rel="icon" type="image/png" href="../assets/icon/logo.png">
   <link rel="stylesheet" href="../shared.css" />
   <style>
@@ -35,12 +35,15 @@
     /* Two-column grid */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 28px;
-      align-items: start;
+      grid-template-columns: minmax(320px, 1.02fr) minmax(420px, 1.28fr);
+      gap: clamp(20px, 3vw, 32px);
+      align-items: stretch;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .contact-grid { grid-template-columns: 1fr; }
+    }
+    .contact-grid > .card {
+      height: 100%;
     }
 
     /* Info card */
@@ -87,6 +90,12 @@
       color: var(--clr-text, #0f172a);
       font-weight: 500;
       line-height: 1.4;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .info-item > div:last-child {
+      flex: 1;
+      min-width: 0;
     }
     .info-value a {
       color: var(--clr-accent, #2563eb);
@@ -99,6 +108,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
       font-size: 0.78rem;
       font-weight: 600;
       color: #16a34a;
@@ -106,6 +116,8 @@
       padding: 4px 10px;
       border-radius: 20px;
       margin-top: 18px;
+      max-width: 100%;
+      align-self: flex-start;
     }
     .response-badge::before {
       content: '';
@@ -285,6 +297,9 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+    .support-links .btn {
+      min-width: 180px;
+    }
 
     /* Card heading */
     .card-heading {
@@ -319,26 +334,20 @@
 <!-- ═══ UNIVERSAL NAV ═══ -->
 <nav class="site-nav" id="site-nav">
   <div class="nav-inner">
-    <a href="/PhysicX/index.html" class="nav-logo" aria-label="PhysicX Home">
-      <img src="../assets/icon/logo.png"       alt="PhysicX Logo"       style="height:34px;">
-      <span class="nav-logo-text">Physic<span>X</span></span>
+    <a href="/ChemistrY/index.html" class="nav-logo" aria-label="ChemistrY Home">
+      <img src="../assets/icon/logo.png"       alt="ChemistrY Logo"       style="height:34px;">
+      <span class="nav-logo-text">Chemistr<span>Y</span></span>
     </a>
     <ul class="nav-links" id="nav-links" role="list">
-      <li><a href="/PhysicX/index.html">Home</a></li>
-      <li><a href="/PhysicX/pricing.html">Pricing</a></li>
-      <li><a href="/PhysicX/gallery/gallery.html">Gallery</a></li>
-      <li><a href="/PhysicX/index.html#features">Features</a></li>
-      <li><a href="/PhysicX/docs/index.html">Documentation</a></li>
-      <li><a href="/PhysicX/about/about.html">About</a></li>
-      <li><a href="/PhysicX/contacts/contact.html">Contact</a></li>
-      <li><a href="/PhysicX/success.html">Success</a></li>
-      <li><a href="/PhysicX/verify-otp.html">Verify OTP</a></li>
-      <li><a href="/PhysicX/reset-password.html">Reset Password</a></li>
-      <li><a href="/PhysicX/register.html">Create Account</a></li>
-      <li><a href="/PhysicX/login.html">Login</a></li>
-      <li><a href="/PhysicX/dashboard.html">Dashboard</a></li>
-      <li><a href="/PhysicX/forgot-password.html">Forgot Password</a></li>
-      <li><a href="/PhysicX/index.html#download-section" class="nav-download">Download</a></li>
+      <li><a href="/ChemistrY/index.html">Home</a></li>
+      <li><a href="/ChemistrY/pricing.html">Pricing</a></li>
+      <li><a href="/ChemistrY/gallery/gallery.html">Gallery</a></li>
+      <li><a href="/ChemistrY/index.html#features">Features</a></li>
+      <li><a href="/ChemistrY/docs/index.html">Documentation</a></li>
+      <li><a href="/ChemistrY/about/about.html">About</a></li>
+      <li><a href="/ChemistrY/contacts/contact.html">Contact</a></li>
+      <li><a href="/ChemistrY/login.html">Login</a></li>
+      <li><a href="/ChemistrY/index.html#download-section" class="nav-download">Download</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -355,7 +364,7 @@
   <section class="section contact-hero reveal">
     <div class="container">
       <span class="badge">Contact</span>
-      <h1>Get in Touch with PhysicX</h1>
+      <h1>Get in Touch with ChemistrY</h1>
       <p>Have questions, feedback, or collaboration ideas? We'd love to hear from you.</p>
     </div>
   </section>
@@ -382,7 +391,7 @@
               </div>
               <div>
                 <div class="info-label">Email</div>
-                <div class="info-value"><a href="mailto:physicx.support@gmail.com">physicx.support@gmail.com</a></div>
+                <div class="info-value"><a href="mailto:chemistry.support@gmail.com">chemistry.support@gmail.com</a></div>
               </div>
             </div>
 
@@ -395,7 +404,7 @@
               </div>
               <div>
                 <div class="info-label">GitHub</div>
-                <div class="info-value"><a href="https://github.com" target="_blank" rel="noopener">github.com/physicx</a></div>
+                <div class="info-value"><a href="https://github.com" target="_blank" rel="noopener">github.com/chemistry</a></div>
               </div>
             </div>
 
@@ -408,7 +417,7 @@
               </div>
               <div>
                 <div class="info-label">Project</div>
-                <div class="info-value">PhysicX — Physics Simulation Platform</div>
+                <div class="info-value">ChemistrY - Chemistry Simulation Platform</div>
               </div>
             </div>
 
@@ -428,7 +437,7 @@
           </div>
 
           <!-- Response time badge -->
-          <div class="response-badge">Typically responds within 24–48 hours</div>
+          <div class="response-badge">Typically responds within 24-48 hours</div>
         </div>
 
         <!-- Right: Contact Form -->
@@ -441,7 +450,7 @@
           <!-- Status messages -->
           <div class="form-status success" id="form-success" role="alert">
             <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span>Thank you for contacting PhysicX. We will respond shortly.</span>
+            <span>Thank you for contacting ChemistrY. We will respond shortly.</span>
           </div>
           <div class="form-status error" id="form-error" role="alert">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -486,7 +495,7 @@
             <!-- Message -->
             <div class="form-group" id="fg-message">
               <label for="inp-message">Message <span class="required">*</span></label>
-              <textarea id="inp-message" name="message" placeholder="Write your message here…" required rows="5"></textarea>
+              <textarea id="inp-message" name="message" placeholder="Write your message here..." required rows="5"></textarea>
               <span class="field-error">Please enter your message.</span>
             </div>
 
@@ -508,12 +517,12 @@
   <section class="support-section reveal">
     <div class="container">
       <div class="support-inner">
-        <h2>Need help with PhysicX?</h2>
+        <h2>Need help with ChemistrY?</h2>
         <p>Browse our resources to find quick answers, guides, and troubleshooting steps.</p>
         <div class="support-links">
-          <a href="/PhysicX/docs/index.html" class="btn btn-secondary">📖 Documentation</a>
-          <a href="/PhysicX/docs/index.html#troubleshooting" class="btn btn-secondary">🔧 Troubleshooting</a>
-          <a href="/PhysicX/docs/index.html#faq" class="btn btn-secondary">❓ FAQ</a>
+          <a href="/ChemistrY/docs/index.html" class="btn btn-secondary">Documentation</a>
+          <a href="/ChemistrY/docs/index.html#troubleshooting" class="btn btn-secondary">Troubleshooting</a>
+          <a href="/ChemistrY/docs/index.html#faq" class="btn btn-secondary">FAQ</a>
         </div>
       </div>
     </div>
@@ -525,12 +534,12 @@
   <footer style="border-top: 1px solid var(--clr-border); padding: 2rem 0; margin-top: 2rem;">
     <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
       <p style="margin:0; font-size:0.85rem; color:var(--clr-text-muted, #64748b);">
-        &copy; 2026 PhysicX. All rights reserved.
+        &copy; 2026 ChemistrY. All rights reserved.
       </p>
       <nav aria-label="Footer links" style="display:flex; gap:1.25rem;">
         <a href="https://github.com" style="font-size:0.85rem; color:var(--clr-text-muted, #64748b); text-decoration:none;" target="_blank" rel="noopener">GitHub</a>
-        <a href="/PhysicX/docs/index.html"          style="font-size:0.85rem; color:var(--clr-text-muted, #64748b); text-decoration:none;">Documentation</a>
-        <a href="/PhysicX/contacts/contact.html"       style="font-size:0.85rem; color:var(--clr-text-muted, #64748b); text-decoration:none;">Contact</a>
+        <a href="/ChemistrY/docs/index.html"          style="font-size:0.85rem; color:var(--clr-text-muted, #64748b); text-decoration:none;">Documentation</a>
+        <a href="/ChemistrY/contacts/contact.html"       style="font-size:0.85rem; color:var(--clr-text-muted, #64748b); text-decoration:none;">Contact</a>
       </nav>
     </div>
   </footer>
@@ -559,7 +568,7 @@ form.addEventListener('submit', async function(e) {
   // Set dynamic subject
   let subjectInput = document.getElementById('email-subject');
   if (subjectInput) {
-    subjectInput.value = `PhysicX Contact: ${subject} from ${name}`;
+    subjectInput.value = `ChemistrY Contact: ${subject} from ${name}`;
   }
 
   // Set reply-to email
@@ -601,3 +610,4 @@ form.addEventListener('submit', async function(e) {
   
 </body>
 </html>
+
